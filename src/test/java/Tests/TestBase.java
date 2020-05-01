@@ -54,9 +54,6 @@ public abstract class TestBase {
 
 		switch (executionOS) {
 		case ANDROID:
-			
-			File appAndroid = getAndroidAppFile();
-			System.out.println(appAndroid.getName());
 
 			DesiredCapabilities capabilitiesAndroid = new DesiredCapabilities();
 			capabilitiesAndroid.setCapability(MobileCapabilityType.PLATFORM_NAME, deviceAndroid.platformName);
@@ -81,10 +78,5 @@ public abstract class TestBase {
 		if (driver != null) {
 			driver.quit();
 		}
-	}
-
-	public static File getAndroidAppFile() {
-		File appDir = new File(deviceAndroid.appDir);
-		return new File(appDir, deviceAndroid.appName);
 	}
 }
