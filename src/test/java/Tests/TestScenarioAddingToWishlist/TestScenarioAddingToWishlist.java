@@ -23,6 +23,7 @@ public class TestScenarioAddingToWishlist extends TestBase {
 	String password = readingExcel.getCellData("Sheet1", "Password", 2);
 	String productName = readingExcel.getCellData("Sheet1", "ProductSearch", 2);
 	String searchString = readingExcel.getCellData("Sheet1", "SelectItem", 2);
+	String itemAssertion = readingExcel.getCellData("Sheet1", "ItemAssertion", 2);
 
 	@BeforeTest
 	public void setUpPage() throws Exception {
@@ -64,7 +65,7 @@ public class TestScenarioAddingToWishlist extends TestBase {
 		/*Adding a product to wishlist*/
 		BasePage.closeLanguageDialog();
 		searchProductPage.clickSearchTextbox(productName);
-		searchProductPage.clickFirstSuggestionFromSearchBox();
+		searchProductPage.clickFirstSuggestionFromSearchBox(searchString, itemAssertion);
 		
 		BasePage.useMyCurrentLocationClick();
 		searchProductPage.selectItemAfterScroll();

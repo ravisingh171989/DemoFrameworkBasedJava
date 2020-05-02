@@ -38,9 +38,6 @@ public abstract class BasePage {
 	@FindBy(xpath = "//android.widget.EditText[@resource-id='com.amazon.mShop.android.shopping:id/rs_search_src_text']")
 	protected WebElement searchTextBox;
 	
-	@FindBy(xpath = "//android.widget.TextView[@resource-id='com.amazon.mShop.android.shopping:id/iss_search_dropdown_item_text']")
-	protected WebElement firstSuggestedSearchClick;
-	
 	@FindBy(xpath = "//android.widget.TextView[@resource-id='com.amazon.mShop.android.shopping:id/loc_ux_update_current_pin_code']")
 	protected static WebElement useMyCurrentLocationClick;
 	
@@ -55,8 +52,11 @@ public abstract class BasePage {
 	
 	@FindBy(xpath = "//android.widget.Button[@class='android.widget.Button']")
 	protected MobileElement sizeButtons;
+	
+	@FindBy(xpath = "//android.widget.Button[@resource-id='add-to-cart-button']")
+	protected MobileElement addToCartButton;
 
-	static WebDriverWait wait;
+	public static WebDriverWait wait;
 
 	protected static Dimension size;
 

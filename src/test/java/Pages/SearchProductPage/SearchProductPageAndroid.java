@@ -1,5 +1,8 @@
 package Pages.SearchProductPage;
 
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.DeviceRotation;
 
 import Pages.BasePage;
@@ -29,10 +32,15 @@ public class SearchProductPageAndroid extends BasePage implements SearchProductP
 	 * This methods performs following:
 	 * Clicks on first suggested option from search box
 	 */
-	public void clickFirstSuggestionFromSearchBox() {
+	public void clickFirstSuggestionFromSearchBox(String SelectItem, String ItemAssertion) {
 		takeScreenshot("firstSuggestedSearchClick");
-		firstSuggestedSearchClick.click();
+		driver.findElement(By.xpath("//android.widget.TextView[@text='"+SelectItem+"']")).click();
 		takeScreenshot("firstSuggestedSearchClick2");
+		
+		/*Verify first Item*/
+		String actualText = driver.findElement(By.xpath("//android.widget.TextView[@text='"+ItemAssertion+"']")).getText();
+		assertEquals(actualText, ItemAssertion);
+		
 	}
 	
 	/*
@@ -48,8 +56,9 @@ public class SearchProductPageAndroid extends BasePage implements SearchProductP
 		
 		driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)."
 				+ "instance(0)).scrollIntoView(new UiSelector()."
-				+ "textContains(\""+"ADD TO WISH LIST"+"\").instance(0))"));
-		wishlistButtonStack.click();
+				+ "textContains(\""+"Add to Cart"+"\").instance(0))"));
+		addToCartButton.click();
+		BasePage.sleep(5);
 		takeScreenshot("selectItem2");
 	}
 

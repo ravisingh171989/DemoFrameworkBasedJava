@@ -1,5 +1,7 @@
 package Pages.LoginPage;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import Pages.BasePage;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -21,6 +23,7 @@ public class LoginPageAndroid extends BasePage implements LoginPage {
 	
 	public void enterUsername(String username) {
 		takeScreenshot("enterUsername");
+		BasePage.sleep(5);
 		emailTextField.sendKeys(username);
 		takeScreenshot("enterUsername2");
 	}
@@ -57,6 +60,7 @@ public class LoginPageAndroid extends BasePage implements LoginPage {
 	
 	public void enterInvalidPassword() {
 		takeScreenshot("enterInvalidPassword");
+		BasePage.sleep(5);
 		enterPassword.sendKeys("ksdfhskdjh");
 		takeScreenshot("enterInvalidPassword2");
 	}
