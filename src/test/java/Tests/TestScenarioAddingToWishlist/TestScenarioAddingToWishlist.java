@@ -19,11 +19,11 @@ public class TestScenarioAddingToWishlist extends TestBase {
 	private LoginPage loginPage;
 	private SearchProductPage searchProductPage;
 	
-	String username = readingExcel.getCellData("Sheet1", "Username", 2);
-	String password = readingExcel.getCellData("Sheet1", "Password", 2);
-	String productName = readingExcel.getCellData("Sheet1", "ProductSearch", 2);
-	String searchString = readingExcel.getCellData("Sheet1", "SelectItem", 2);
-	String itemAssertion = readingExcel.getCellData("Sheet1", "ItemAssertion", 2);
+	String username = readingExcel.getCellData("DemonstrationTest", "Username", 2);
+	String password = readingExcel.getCellData("DemonstrationTest", "Password", 2);
+	String productName = readingExcel.getCellData("DemonstrationTest", "ProductSearch", 2);
+	String searchString = readingExcel.getCellData("DemonstrationTest", "SelectItem", 2);
+	String itemAssertion = readingExcel.getCellData("DemonstrationTest", "ItemAssertion", 2);
 
 	@BeforeTest
 	public void setUpPage() throws Exception {
