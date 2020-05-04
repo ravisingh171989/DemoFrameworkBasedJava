@@ -3,16 +3,16 @@ package Pages.SearchProductPage;
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.DeviceRotation;
 
 import Pages.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class SearchProductPageAndroid extends BasePage implements SearchProductPage {
 
-	public SearchProductPageAndroid(AndroidDriver<MobileElement> driver) throws Exception {
+	public SearchProductPageAndroid(AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
 	}
 	
@@ -20,6 +20,7 @@ public class SearchProductPageAndroid extends BasePage implements SearchProductP
 	 * This methods performs following:
 	 * Enters item to be searched from search box
 	 */
+	@Step("Click on search textbox and enter a product name to search")
 	public void clickSearchTextbox(String productName) {
 		takeScreenshot("searchTextBox");
 		searchTextBox.click();
@@ -32,6 +33,7 @@ public class SearchProductPageAndroid extends BasePage implements SearchProductP
 	 * This methods performs following:
 	 * Clicks on first suggested option from search box
 	 */
+	@Step("Click on first suggested product from listing")
 	public void clickFirstSuggestionFromSearchBox(String SelectItem, String ItemAssertion) {
 		takeScreenshot("firstSuggestedSearchClick");
 		driver.findElement(By.xpath("//android.widget.TextView[@text='"+SelectItem+"']")).click();
@@ -48,6 +50,7 @@ public class SearchProductPageAndroid extends BasePage implements SearchProductP
 	 * Select item which is needed to be added to wishlist
 	 * Scrolling to Add the product to wishlist
 	 */
+	@Step("Click on Add to Cart button")
 	public void selectItemAfterScroll() {
 		takeScreenshot("selectItem");
 		selectItem.click();
