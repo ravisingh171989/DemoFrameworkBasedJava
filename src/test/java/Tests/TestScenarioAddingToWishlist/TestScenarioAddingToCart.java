@@ -6,13 +6,18 @@ import org.testng.annotations.BeforeTest;
 import Pages.BasePage;
 import Pages.LoginPage.LoginPage;
 import Pages.LoginPage.LoginPageAndroid;
+import Pages.LoginPage.LoginPageiOS;
 import Pages.SearchProductPage.SearchProductPage;
 import Pages.SearchProductPage.SearchProductPageAndroid;
+import Pages.SearchProductPage.SearchProductPageiOS;
 import Tests.TestBase;
+import ru.yandex.qatools.allure.annotations.Description;
+import ru.yandex.qatools.allure.annotations.Severity;
+import ru.yandex.qatools.allure.model.SeverityLevel;
 
-public class TestScenarioAddingToWishlist extends TestBase {
+public class TestScenarioAddingToCart extends TestBase {
 
-	public TestScenarioAddingToWishlist() throws Exception {
+	public TestScenarioAddingToCart() throws Exception {
 		super();
 	}
 
@@ -33,12 +38,20 @@ public class TestScenarioAddingToWishlist extends TestBase {
 			searchProductPage = new SearchProductPageAndroid(driver);
 
 			break;
+			
+		case IOS:
+			loginPage = new LoginPageiOS(driver);
+			searchProductPage = new SearchProductPageiOS(driver);
+			break;
+			
 		default:
 			break;
 		}
 	}
 
+	@Severity(SeverityLevel.CRITICAL)
 	@Test
+	@Description("This is coding demonstration test")
 	public void LoginPageTestMethods() {
 		/* LoginPageTests */
 		loginPage.CheckLoginPageForExceptions();
@@ -62,7 +75,6 @@ public class TestScenarioAddingToWishlist extends TestBase {
 		loginPage.enterPassword(password);
 		loginPage.signInSubmitButton();
 		
-		/*Adding a product to wishlist*/
 		BasePage.closeLanguageDialog();
 		searchProductPage.clickSearchTextbox(productName);
 		searchProductPage.clickFirstSuggestionFromSearchBox(searchString, itemAssertion);
