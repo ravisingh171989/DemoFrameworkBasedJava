@@ -1,2 +1,0 @@
-# DemoFrameworkCognizant
-# automationassignment
