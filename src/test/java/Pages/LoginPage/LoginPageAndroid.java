@@ -6,7 +6,6 @@ import io.appium.java_client.MobileElement;
 import ru.yandex.qatools.allure.annotations.Step;
 
 public class LoginPageAndroid extends BasePage implements LoginPage {
-
 	public LoginPageAndroid(AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
 	}

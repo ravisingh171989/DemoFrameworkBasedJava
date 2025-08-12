@@ -16,7 +16,6 @@ import ru.yandex.qatools.allure.annotations.Severity;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
 public class TestScenarioAddingToCart extends TestBase {
-
 	public TestScenarioAddingToCart() throws Exception {
 		super();
 	}
@@ -36,7 +35,6 @@ public class TestScenarioAddingToCart extends TestBase {
 		case ANDROID:
 			loginPage = new LoginPageAndroid(driver);
 			searchProductPage = new SearchProductPageAndroid(driver);
-
 			break;
 			
 		case IOS:
@@ -56,32 +54,32 @@ public class TestScenarioAddingToCart extends TestBase {
 		/* LoginPageTests */
 		loginPage.CheckLoginPageForExceptions();
 		loginPage.clickLoginButton();
-		
+
 		loginPage.enterEmptyUsername();
 		loginPage.clickContinueButton();
-		
+
 		loginPage.enterInvalidUsername();
 		loginPage.clickContinueButton();
-		
+
 		loginPage.enterUsername(username);
 		loginPage.clickContinueButton();
-		
+
 		loginPage.enterEmptyPassword();
 		loginPage.signInSubmitButton();
-		
+
 		loginPage.enterInvalidPassword();
 		loginPage.signInSubmitButton();
-		
+
 		loginPage.enterPassword(password);
 		loginPage.signInSubmitButton();
-		
+
 		BasePage.closeLanguageDialog();
 		searchProductPage.clickSearchTextbox(productName);
 		searchProductPage.clickFirstSuggestionFromSearchBox(searchString, itemAssertion);
-		
+
 		BasePage.useMyCurrentLocationClick();
 		searchProductPage.selectItemAfterScroll();
-		
+
 		BasePage.orientationTest();
 	}
 }
